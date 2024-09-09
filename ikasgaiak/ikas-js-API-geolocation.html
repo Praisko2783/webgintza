@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>API Geolocation </title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../css/w3.css">
+  <link rel="stylesheet" href="../css/estiloa.css">
+  <link rel="stylesheet" href="../css/letra-familia.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+  <!-- Goiburukoa: gunearen titulua, azpititulua eta menua irekitzeko esteka  HASI -->
+  <header>
+    <a href="../index.html">
+      <img src="../irudiak/praiskologoGardena.png" alt="Praiskopediaren logoa" style="width:15%" class="w3-button ">
+    </a>
+    <h1>web-gune-gintza</h1>
+    <span onclick="w3_open()"><i class="fa fa-arrow-circle-o-left"></i>&nbsp;Ireki menua</span>
+  </header>
+  <!-- Goiburukoa: gunearen titulua, azpititulua eta menua irekitzeko esteka  BUKA -->
+  <!-- Menua irekitzeko agindutakoan agertuko den menu bertikala  HASI -->
+  <nav class="nabimenua" id="mySidebar">
+    <div class="menuBtnItxi" onclick="w3_close()">
+      <i class="fa fa-arrow-circle-o-up"></i> Itxi menua
+    </div>
+    <a href="gidaGlosarioa.html" class="gidaBtn" style="color:grey;">Glosarioa</a>
+    <a href="gidaOsagarriak.html" class="gidaBtn" style="color:grey;">Material osagarria</a>
+    <a href="gidaDida.html" class="gidaBtn" style="color:green;"><u>Gida Didaktikoa</u></a>
+    <a href="ikas-internet.html" style="color:grey;">Internet </a>
+    <a href="ikas-web.html" style="color:green;"><u>Web garapena</u></a>
+    <a href="ikas-html.html" style="color:green;"><u>HTML</u></a>
+    <a href="ikas-css.html" style="color:grey;">CSS </a>
+    <a href="ikas-css-webDiseinua.html" style="color:grey;">Web diseinua</a>
+    <a href="ikas-css-diseinuMoldagarria.html" style="color:grey;">Diseinu moldagarria</a>
+    <a href="ikas-js.html" style="color:grey;">JavaScript</a>
+    <a href="ikas-js-API-formularioak.html" style="color:grey;">API (Formularioak)</a>
+    <a href="ikas-js-API-medioak.html" style="color:grey;">API(Ikusentzunezkoak)</a>
+    <a href="ikas-js-API-stream.html" style="color:grey;">API(Stream)</a>
+    <a href="ikas-js-API-fullscreen.html" style="color:grey;">API(Fullscreen)</a>
+    <a href="ikas-js-API-canvas.html" style="color:grey;">API(Canvas)</a>
+    <a href="ikas-js-API-webGL.html" style="color:grey;">API(WebGL)</a>
+    <a href="ikas-js-API-pointerLock.html" style="color:grey;">API(Pointer Lock)</a>
+    <a href="ikas-js-API-webStorage.html" style="color:grey;">API(Web Storage)</a>
+    <a href="ikas-js-API-IndexedDB.html" style="color:grey;">API(IndesedDB)</a>
+    <a href="ikas-js-API-file.html" style="color:grey;">API(File)</a>
+    <a href="ikas-js-API-dragdrop.html" style="color:grey;">API(Drag and Drop)</a>
+    <a href="ikas-js-API-geolocation.html" style="color:grey;">API(Geolocation)</a>
+    <a href="ikas-js-API-history.html" style="color:grey;">API(History)</a>
+    <a href="ikas-js-API-pageVsibility.html" style="color:grey;">API(Page Visibility)</a>
+    <a href="ikas-js-API-ajaxLevel2.html" style="color:grey;">API(AJAX Level2)</a>
+    <a href="ikas-js-API-webMessaging.html" style="color:grey;">API(Web Messaging)</a>
+    <a href="ikas-js-API-webSocket.html" style="color:grey;">API(WebSocket)</a>
+    <a href="ikas-js-API-webRTC.html" style="color:grey;">API(WebRTC)</a>
+    <a href="ikas-js-API-webAudio.html" style="color:grey;">API(Web Audio)</a>
+    <a href="ikas-js-API-webWorkers.html" style="color:grey;">API(Web Workers)</a>
+  </nav>
+  <!-- Menua irekitzeko agindutakoan agertuko den menu bertikala  BUKA -->
+
+  <body>
+    <main>
+      <!-- HEMEN HASTEN DA EDUKIAREN ATAL NAGUSIA <main>   Atalburua sailarekin--- -->
+      <!-- WEBGUNEAK SAILA HASI -----  WEBGUNEAK SAILA HASI------  WEBGUNEAK SAILA HASI----------  -->
+      <section class="ikasgaia">
+        <div class="ikasgaiBurua">
+          <h2><strong>API Geolocation (Geolokalizazioa)</strong></h2>
+        </div>
+            <article id="artikuluBurua">
+              <h2><strong>Kokapen geografikoa</strong></h2>
+              <h5><u>Azpiatalak</u></h5>
+              <ul class="saioAzpiatalak">
+                <li><a class="azpiatala" href="#geo-kokapenaLortu">Kokapena lortzeko</a></li>
+                <li><a class="azpiatala" href="#geo-kokapenaBerretsi">Kokapena berresteko</a></li>
+                <li><a class="azpiatala" href="#geo-googleMaps">Google Maps</a></li>
+              </ul>
+            <section>
+              <article id="geo-kokapenGeografikoa">
+                <h2><strong>Kokapen geografikoa</strong></h2>
+                <p>API Geolocation diseinatu zen detekzio mekanismo estandar bat eskaintzeko garatzaileek kokapen geografikoa zehazteko erabiltzen dituzten nabigatzaileak erabiltzailea. Lehen, datu-base zabal bat eraikitzeko aukera baino ez genuen, IP helbideak eta zerbitzarian kontsumo handiko aplikazioak programatzea, soilik ematen zizkigutenak erabiltzailearen kokapenari buruzko gutxi gorabeherako ideia bat (batzuetan herrialdea bezain zehaztugabea). API honek sistema berriak baliatzen ditu, hala nola sareen triangelazioa eta GPSa, aplikazioa exekutatzen ari den gailuaren kokapena itzultzeko.</p>
+
+                <p>Lortutako informazioa erabiltzailearen kokapenera egokitzen diren aplikazioak sortzeko erabiltzea edo informazioa ematea automatikoki lokalizatua. APIan hiru metodo erabiltzen dira helburu horrekin.
+
+                  <ul class="zerrendaArruntak">
+                    <li><strong>getCurrentPosition (kokapena, errorea, konfigurazioa) — </strong>Metodo hau banakako eskaerak. Hiru propietate onartzen ditu: lortutako kokapena prozesatzeko funtzio bat,akatsak prozesatzeko funtzio bat eta objektu bat informazioa nola lortuko den konfiguratzeko(lehenengo atributua baino ez da behar).</li>
+                    <li><strong>watchPosition (kokapena, errorea, konfigurazioa) —</strong> Metodo hau aurreko metodoaren antzera jokatzen du. Alñde bakarra da metodo honek kokapena etengabe kontrolatzen duela, gertatutako edozein aldaketaren berri emanez.</li>
+                    <li><strong>setInterval () — </strong>Metodo honek prozesua denbora tarte batean automatikoki errepikatzen du lehenetsitako balioen arabera edo atributuek zehaztutako konfigurazioaren arabera.</li>
+                    <li><strong>ClearWatch (identifikatzailea) — </strong> Metodo honek <strong>watchPosition metodoa ()</strong>k hasitako prozesua geldiarazi egiten du. <strong>clearInterval ()</strong> metodoaren antzekoa da. Azken horrek <strong>setInterval()</strong>ek hasitako prozesua geldiarazten du.</li>
+                  </ul>
+
+                  <p>Hurrengoa izango da kapitulu honetarako gure dokumentua. Dokumentu erraza da, elementu baten barruan botoi bat baino ez dugu erabiliko < section> lokalizazio-sistemak lortzen duen informazioa.</p>
+<pre>
+<code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+  &lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;title&gt;Geolocation&lt;/title&gt;
+    &lt;script src="geolocation.js"&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;section id="ubicacion"&gt;
+      &lt;button type="button" id="obtener"&gt;Obtener mi ubicacion&lt;/button&gt;
+    &lt;/section&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code>
+</pre>
+              </article>
+              <article id="geo-kokapenaLortu">
+                <h2><strong>Kokapen geografikoa</strong></h2>
+                <p>Lehen aipatu dugun bezala, atributu bakarra esleitu behar diogu <strong>getCurrentPosition ()</strong> metodoari  kokapena lortzeko. Atributu hori jasotzen duen funtzioa da <strong>Position</strong> izeneko objektu bat, lokalizazio-sistemak lortzen duen informazio guztiarekin.
+                <p><strong>Position</strong> objektuak bi propietate ditu balioak biltegiratzeko.</p>
+
+
+              </article>
+            
+            </section>
+    </main>
+    <!-- HEMEN BUKATZEN DA 'javaScript' atalaren mamia -->
+
+  
+   <!-- GORA IGOTZEKO BOTOI GORRIA BAHEAN ESKUINEAN hasi -------------- -->
+   <span class="ir-arriba icon-arrow-up2"></span>
+   <!-- End page content -->
+   <button class="toTop" id="toTop">
+     <svg viewBox="0 0 24 24">
+       <path d="m4 16 8-8 8 8"></path>
+     </svg>
+   </button>
+   <!-- GORA IGOTZEKO BOTOI GORRIA BAHEAN ESKUINEAN buka -------------- -->
+
+   <!-- Orriaren oina -----'FOOTER'------HASI   -->
+   <footer>
+     <span onclick="w3_open()"><i class="fa fa-arrow-circle-o-left"></i>&nbsp;Ireki menua</span>
+     <h3>OINEAN OINETAKOA</h3>
+     <a href="https://praiskopedia.eus" target="_blank">&copy; Praiskopedia</a>
+   </footer>
+   <!-- Orriaren oina -----'FOOTER'------BUKA   -->
+
+ </body>
+
+</html>
+<!-- HEMEN BUKATZEN DA 'web-ikas' orrialdearen HTMLa -->
+
+<!-- HEMEN DOA menua eta gorako botoia maneiatzeko JavaScript-a <script> eta </script> etiketen artean ----------- HASI -->
+<script>
+ // Menua irekitzeko eta ixteko kodea
+ function w3_open() {
+   document.getElementById("mySidebar").style.display = "block";
+ }
+ function w3_close() {
+   document.getElementById("mySidebar").style.display = "none";
+ }
+ //Gorako botoia agerrarazteko, ezkutatzeko eta klikatuz orriaren goialdera igotzeko kodea
+ const toTop = (() => {
+   let button = document.getElementById("toTop");
+   window.onscroll = () => {
+     button.classList[
+       (document.documentElement.scrollTop > 200) ? "add" : "remove"
+     ]("is-visible")
+   }
+   button.onclick = () => {
+     window.scrollTo({
+       top: 0, behavior: "smooth"
+     })
+   }
+ })();
+</script>
+<!-- Menua eta gorako botoia maneiatzeko JavaScript-a, <script> eta </script> etiketen artean doana, ----------- BUKA -->
+
+<!-- Kanpoko fitxategiak erabili ahal izateko estekak (JavaScript-ak orria bukaeran idatzi ohi dira, sistemak 
+HTML eta CSS guztia irakurri ostean irakur ditzan) -------------- -->
+<script src="../js/vendor/galdetegia.js"></script>
+<script src="../js/vendor/kudeaketa.js"></script>
+<script src="../js/vendor/lengoaiaSkripta.js"></script>
