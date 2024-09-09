@@ -1,2 +1,0 @@
-# webgintza
-Webguneak nola egin
